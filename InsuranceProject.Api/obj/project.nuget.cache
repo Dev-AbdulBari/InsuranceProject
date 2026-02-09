@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "9/6NtvGitAg=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Blue\\source\\repos\\InsuranceProject\\InsuranceProject.Api\\InsuranceProject.Api.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Blue\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.12\\microsoft.aspnetcore.openapi.9.0.12.nupkg.sha512",
+    "C:\\Users\\Blue\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,11 @@
+C:\Users\Blue\source\repos\InsuranceProject\InsuranceProject.Domain\bin\Debug\net9.0\InsuranceProject.Domain.deps.json
+C:\Users\Blue\source\repos\InsuranceProject\InsuranceProject.Domain\bin\Debug\net9.0\InsuranceProject.Domain.dll
+C:\Users\Blue\source\repos\InsuranceProject\InsuranceProject.Domain\bin\Debug\net9.0\InsuranceProject.Domain.pdb
+C:\Users\Blue\source\repos\InsuranceProject\InsuranceProject.Domain\obj\Debug\net9.0\InsuranceProject.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Blue\source\repos\InsuranceProject\InsuranceProject.Domain\obj\Debug\net9.0\InsuranceProject.Domain.AssemblyInfoInputs.cache
+C:\Users\Blue\source\repos\InsuranceProject\InsuranceProject.Domain\obj\Debug\net9.0\InsuranceProject.Domain.AssemblyInfo.cs
+C:\Users\Blue\source\repos\InsuranceProject\InsuranceProject.Domain\obj\Debug\net9.0\InsuranceProject.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Blue\source\repos\InsuranceProject\InsuranceProject.Domain\obj\Debug\net9.0\InsuranceProject.Domain.dll
+C:\Users\Blue\source\repos\InsuranceProject\InsuranceProject.Domain\obj\Debug\net9.0\refint\InsuranceProject.Domain.dll
+C:\Users\Blue\source\repos\InsuranceProject\InsuranceProject.Domain\obj\Debug\net9.0\InsuranceProject.Domain.pdb
+C:\Users\Blue\source\repos\InsuranceProject\InsuranceProject.Domain\obj\Debug\net9.0\ref\InsuranceProject.Domain.dll
