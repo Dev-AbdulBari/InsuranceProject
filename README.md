@@ -278,7 +278,8 @@ This endpoint allows you to generate a cancellation quote for an active policy. 
 #### Format
 -   PolicyId - Input here the previously-generated **guidId** from the quote endpoint
 #### Rules
--   PolicyId must be a valid active policy id    
+-   PolicyId must be a valid active policy id
+-   Policy must not have any claims
 -   The policy must not already be cancelled
 
 <details>
@@ -315,7 +316,8 @@ This endpoint will fully cancel an active policy. Once cancelled, the policy wil
 #### Format
 -   PolicyId - Input here the active policy **guidId**   
 #### Rules
--   PolicyId must be a valid active policy id    
+-   PolicyId must be a valid active policy id
+-   Policy must not have any claims
 -   The policy must not already be cancelled
 <details>
 <summary>Click to Show Example JSON request</summary>
