@@ -100,7 +100,7 @@ If accepted, the API will respond with:
 
 Details must be inputted as in the same JSON format as the example and must follow these rules:
 
-### Format
+#### Format
 - PolicyId -  Input here the previously-generated **guidId** from the quote endpoint
 - Payment
 	- PaymentType - choose a value from the following
@@ -110,7 +110,7 @@ Details must be inputted as in the same JSON format as the example and must foll
 	- Amount - please enter here the amount from the quote
 - AutoRenew - true if you wish to auto renew policy otherwise false
 	- Not currently used but inserted as an idea for how this project could shape
-### Rules
+#### Rules
 - PolicyId must be a valid policy id
 - PaymentType must be a valid option
 - Payment amount must be exactly the quote amount
@@ -232,11 +232,11 @@ The API will then respond with the following details:
 
 Details must be inputted as in the same JSON format as the example and must follow these rules:
 
-### Format
+#### Format
 - PolicyId -  Input here the previously-generated **guidId** from the quote endpoint
 - Claim
 	- Reason - input the reason for the claim
-### Rules
+#### Rules
 - PolicyId must be a valid policy id
 
 <details>
@@ -275,60 +275,11 @@ Details must be inputted as in the same JSON format as the example and must foll
 ### CancelQuote Endpoint - [Post] `https://localhost:7156/api/policy/cancelquote`
 This endpoint allows you to generate a cancellation quote for an active policy. It will calculate the refund amount you would receive **without actually cancelling** the policy.
 
-### Format
-
+#### Format
 -   PolicyId - Input here the previously-generated **guidId** from the quote endpoint
-    
-
-### Rules
-
--   PolicyId must be a valid active policy id
-    
+#### Rules
+-   PolicyId must be a valid active policy id    
 -   The policy must not already be cancelled
-
-<details>
-<summary>Click to Show Example JSON request</summary>
-```json
-{
-  "PolicyId": "c37feb84-0d17-4a21-8369-bb5de0eceea5"
-}
-```
-
-If accepted, the API will respond with:
-
--   guidId - The policy id
-    
--   refundAmount - The calculated refund amount
-    
--   message - Confirmation that the policy is still active
-
-<details>
-<summary>Click to Show Example JSON response</summary>
-
-```json
-{
-  "guidId": "c37feb84-0d17-4a21-8369-bb5de0eceea5",
-  "refundAmount": 600,
-  "message": "Your cancellation quote has been successfully generated. Your policy is still active and no changes have been applied"
-}
-```
-### Cancel Endpoint - [Post] `https://localhost:7156/api/policy/cancel`
-
-This endpoint will fully cancel an active policy.
-
-Once cancelled, the policy will no longer remain active and cannot be claimed against.
-
-### Format
-
--   PolicyId - Input here the active policy **guidId**
-    
-
-### Rules
-
--   PolicyId must be a valid active policy id
-    
--   The policy must not already be cancelled
-    
 
 <details>
 <summary>Click to Show Example JSON request</summary>
@@ -341,12 +292,45 @@ Once cancelled, the policy will no longer remain active and cannot be claimed ag
 </details>
 
 If accepted, the API will respond with:
+-   guidId - The policy id    
+-   refundAmount - The calculated refund amount    
+-   message - Confirmation that the policy is still active
 
--   guidId - The cancelled policy id
-    
--   refundAmount - The final refund issued
-    
--   message - Confirmation that the policy has been cancelled    
+<details>
+<summary>Click to Show Example JSON response</summary>
+
+```json
+{
+  "guidId": "c37feb84-0d17-4a21-8369-bb5de0eceea5",
+  "refundAmount": 600,
+  "message": "Your cancellation quote has been successfully generated. Your policy is still active and no changes have been applied"
+}
+```
+</details>
+
+### Cancel Endpoint - [Post] `https://localhost:7156/api/policy/cancel`
+
+This endpoint will fully cancel an active policy. Once cancelled, the policy will no longer remain active and cannot be claimed against.
+
+#### Format
+-   PolicyId - Input here the active policy **guidId**   
+#### Rules
+-   PolicyId must be a valid active policy id    
+-   The policy must not already be cancelled
+<details>
+<summary>Click to Show Example JSON request</summary>
+
+```json
+{
+  "PolicyId": "c37feb84-0d17-4a21-8369-bb5de0eceea5"
+}
+```
+</details>
+
+If accepted, the API will respond with:
+-   guidId - The cancelled policy id    
+-   refundAmount - The final refund issued    
+-   message - Confirmation that the policy has been cancelled
 
 <details>
 <summary>Click to Show Example JSON response</summary>
