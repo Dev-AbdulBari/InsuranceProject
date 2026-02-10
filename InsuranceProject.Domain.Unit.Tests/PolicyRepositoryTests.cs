@@ -206,7 +206,8 @@ namespace InsuranceProject.Domain.Unit.Tests
 
             var cancellationRequest = new CancelPolicyRequest
             {
-                PolicyId = "33ef1a2d-b16c-428b-990d-fc00c3bef18d"
+                PolicyId = "33ef1a2d-b16c-428b-990d-fc00c3bef18d",
+                OriginalPaymentType = 0
             };
 
             _mockDatabase.Setup(x => x.GetPolicy(It.IsAny<string>())).Returns(policy);
@@ -253,7 +254,8 @@ namespace InsuranceProject.Domain.Unit.Tests
 
             var cancellationRequest = new CancelPolicyRequest
             {
-                PolicyId = "33ef1a2d-b16c-428b-990d-fc00c3bef18d"
+                PolicyId = "33ef1a2d-b16c-428b-990d-fc00c3bef18d",
+                OriginalPaymentType = 0
             };
 
             _mockDatabase.Setup(x => x.GetPolicy(It.IsAny<string>())).Returns(policy);
@@ -306,7 +308,8 @@ namespace InsuranceProject.Domain.Unit.Tests
 
             var cancellationRequest = new CancelPolicyRequest
             {
-                PolicyId = "33ef1a2d-b16c-428b-990d-fc00c3bef18d"
+                PolicyId = "33ef1a2d-b16c-428b-990d-fc00c3bef18d",
+                OriginalPaymentType = 0
             };
 
             _mockDatabase.Setup(x => x.GetPolicy(It.IsAny<string>())).Returns(policy);
