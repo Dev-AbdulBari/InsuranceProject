@@ -71,6 +71,7 @@ namespace InsuranceProject.Database.Services
                     Postcode = "L1 1RS"
                 },
                 PolicyType = PolicyType.Household,
+                Amount = 400,
                 Payment = new Payment
                 {
                     Amount = 400,
@@ -100,6 +101,7 @@ namespace InsuranceProject.Database.Services
                     Postcode = "L1 1RS"
                 },
                 PolicyType = PolicyType.BuyToLet,
+                Amount = 600,
                 Payment = new Payment
                 {
                     Amount = 600,
@@ -129,6 +131,7 @@ namespace InsuranceProject.Database.Services
                     Postcode = "L1 1RS"
                 },
                 PolicyType = PolicyType.BuyToLet,
+                Amount = 600,
                 Payment = new Payment
                 {
                     Amount = 600,
@@ -158,6 +161,7 @@ namespace InsuranceProject.Database.Services
                     Postcode = "L1 1RS"
                 },
                 PolicyType = PolicyType.Household,
+                Amount = 400,
                 Payment = new Payment
                 {
                     Amount = 400,
