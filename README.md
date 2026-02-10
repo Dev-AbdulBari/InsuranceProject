@@ -277,9 +277,11 @@ This endpoint allows you to generate a cancellation quote for an active policy. 
 
 #### Format
 -   PolicyId - Input here the previously-generated **guidId** from the quote endpoint
+-   OriginalPaymentType - Must be the same as the payment type used when purchasing the policy
 #### Rules
 -   PolicyId must be a valid active policy id
 -   Policy must not have any claims
+-   Refunds can only be issued to the same payment type used when the policy was purchased
 -   The policy must not already be cancelled
 
 <details>
@@ -288,6 +290,7 @@ This endpoint allows you to generate a cancellation quote for an active policy. 
 ```json
 {
   "PolicyId": "c37feb84-0d17-4a21-8369-bb5de0eceea5"
+  "OriginalPaymentType" : 0
 }
 ```
 </details>
@@ -314,17 +317,20 @@ If accepted, the API will respond with:
 This endpoint will fully cancel an active policy. Once cancelled, the policy will no longer remain active and cannot be claimed against.
 
 #### Format
--   PolicyId - Input here the active policy **guidId**   
+-   PolicyId - Input here the active policy **guidId**
+-   OriginalPaymentType - Must be the same as the payment type used when purchasing the policy
 #### Rules
 -   PolicyId must be a valid active policy id
 -   Policy must not have any claims
+-   Refunds can only be issued to the same payment type used when the policy was purchased
 -   The policy must not already be cancelled
 <details>
 <summary>Click to Show Example JSON request</summary>
 
 ```json
 {
-  "PolicyId": "c37feb84-0d17-4a21-8369-bb5de0eceea5"
+  "PolicyId": "c37feb84-0d17-4a21-8369-bb5de0eceea5",
+  "OriginalPaymentType" : 0
 }
 ```
 </details>
