@@ -87,16 +87,31 @@ namespace InsuranceProject.Domain
         {
             var policy = _database.GetPolicy(cancelPolicyRequest.PolicyId);
 
-            if (policy.Id == Guid.Empty) return Error.PolicyNotFound;
-            if (policy.HasClaims == true) return Error.ClaimsOnPolicyCancellation;
+            var validationError = ValidateCancellationRequest(cancelPolicyRequest, policy);
+            if (validationError != null) return validationError;
 
+            decimal refundAmount;
+
+            refundAmount = CalculateRefundAmount(policy);
+
+            if (!isQuote)
+            {
+                _database.DeletePolicy(policy);
+            }
+
+            return new CancelPolicyResponse(policy.PolicyType, isQuote) { GuidId = policy.Id.ToString(), RefundAmount = refundAmount };
+        }
+
+        private static decimal CalculateRefundAmount(Policy policy)
+        {
             decimal refundAmount;
 
             if (policy.StartDate > DateOnly.FromDateTime(DateTime.UtcNow))
             {
                 refundAmount = policy.Payment!.Amount;
             }
-            else if (policy.StartDate.AddDays(14) >= DateOnly.FromDateTime(DateTime.UtcNow)) {
+            else if (policy.StartDate.AddDays(14) >= DateOnly.FromDateTime(DateTime.UtcNow))
+            {
                 refundAmount = policy.Payment!.Amount;
             }
             else
@@ -109,12 +124,15 @@ namespace InsuranceProject.Domain
                 refundAmount = Math.Round(refundProRataCalculation, 2);
             }
 
-            if(!isQuote)
-            {
-                _database.DeletePolicy(policy);
-            }
-            
-            return new CancelPolicyResponse(policy.PolicyType, isQuote) { GuidId = policy.Id.ToString(), RefundAmount = refundAmount };
+            return refundAmount;
+        }
+
+        private static Error? ValidateCancellationRequest(CancelPolicyRequest cancelPolicyRequest, Policy policy)
+        {
+            if (policy.Id == Guid.Empty) return Error.PolicyNotFound;
+            if (policy.HasClaims == true) return Error.ClaimsOnPolicyCancellation;
+            if (policy.Payment!.PaymentType != cancelPolicyRequest.OriginalPaymentType) return Error.OriginalPaymentMethodMismatch(policy.Payment.PaymentType.ToString());
+            return null;
         }
 
         private static Error? ValidateQuoteDetails(QuotePolicyRequest quotePolicyRequest)
@@ -161,7 +179,6 @@ namespace InsuranceProject.Domain
             var minimumPolicyHolderAge = 16;
             return policyHolder.DateOfBirth > quotePolicyRequest.StartDate.AddYears(-minimumPolicyHolderAge);
         }
-
         private static Error? DatesValidation(QuotePolicyRequest quotePolicyRequest)
         {
             if (IsStartDateInPast(quotePolicyRequest))
