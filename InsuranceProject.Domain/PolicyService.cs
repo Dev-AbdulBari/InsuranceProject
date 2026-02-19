@@ -4,11 +4,11 @@ using InsuranceProject.Domain.Models.Enums;
 
 namespace InsuranceProject.Domain
 {
-    public class PolicyRepository : IPolicyRepository
+    public class PolicyService : IPolicyService
     {
         private IDatabase _database;
 
-        public PolicyRepository(IDatabase database)
+        public PolicyService(IDatabase database)
         {
             _database = database;
         }

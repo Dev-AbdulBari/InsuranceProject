@@ -10,8 +10,8 @@ builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
-builder.Services.AddSingleton<IPolicyRepository, PolicyRepository>();
-builder.Services.AddSingleton<IDatabase, MemoryDbService>();
+builder.Services.AddSingleton<IPolicyService, PolicyService>();
+builder.Services.AddSingleton<IDatabase, MemoryDbRepository>();
 
 var app = builder.Build();
 

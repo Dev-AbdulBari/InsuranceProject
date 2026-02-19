@@ -8,9 +8,9 @@ namespace InsuranceProject.Api.Controllers
     [Route("api/[controller]")]
     public class PolicyController : Controller
     {
-        private IPolicyRepository _policyRepository;
+        private IPolicyService _policyRepository;
 
-        public PolicyController(IPolicyRepository policyRepository)
+        public PolicyController(IPolicyService policyRepository)
         {
             _policyRepository = policyRepository;
         }

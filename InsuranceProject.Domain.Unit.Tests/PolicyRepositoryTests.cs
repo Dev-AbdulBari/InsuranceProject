@@ -7,14 +7,14 @@ namespace InsuranceProject.Domain.Unit.Tests
 {
     public class PolicyRepositoryTests
     {
-        private PolicyRepository _policyRepository;
+        private PolicyService _policyRepository;
         private Mock<IDatabase> _mockDatabase;
 
         [SetUp]
         public void Setup()
         {
             _mockDatabase = new Mock<IDatabase>();
-            _policyRepository = new PolicyRepository(_mockDatabase.Object);
+            _policyRepository = new PolicyService(_mockDatabase.Object);
         }
 
         [Test]

@@ -2,7 +2,7 @@
 
 namespace InsuranceProject.Domain.Interfaces
 {
-    public interface IPolicyRepository
+    public interface IPolicyService
     {
         public Result<Policy> GetPolicy(string guidId);
         public Result<PurchaseQuoteResponse> CreatePolicy(PurchaseQuoteRequest purchaseQuoteRequest);

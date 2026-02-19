@@ -4,12 +4,12 @@ using InsuranceProject.Domain.Models.Enums;
 
 namespace InsuranceProject.Database.Services
 {
-    public class MemoryDbService: IDatabase
+    public class MemoryDbRepository: IDatabase
     {
         private List<Policy> _policies;
         private List<QuotedPolicy> _quotedPolicies;
 
-        public MemoryDbService()
+        public MemoryDbRepository()
         {
             _policies = new List<Policy>();
             _quotedPolicies = new List<QuotedPolicy>();
