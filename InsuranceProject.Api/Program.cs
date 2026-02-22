@@ -1,6 +1,7 @@
+using InsuranceProject.Api.ExceptionHandler;
 using InsuranceProject.Database.Services;
-using InsuranceProject.Domain;
 using InsuranceProject.Domain.Interfaces;
+using InsuranceProject.Domain.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,9 @@ builder.Services.AddOpenApi();
 
 builder.Services.AddSingleton<IPolicyService, PolicyService>();
 builder.Services.AddSingleton<IDatabase, MemoryDbRepository>();
+
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+builder.Services.AddProblemDetails();
 
 var app = builder.Build();
 
@@ -26,5 +30,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseExceptionHandler();
 
 app.Run();
